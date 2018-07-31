@@ -126,3 +126,6 @@ eval $(keychain --eval --agents ssh -Q --quiet id_rsa)
 POWERLINE_BASH_CONTINUATION=1
 POWERLINE_BASH_SELECT=1
 source ~/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
+
+source <(kubectl completion bash)
+source <(minikube completion bash)
