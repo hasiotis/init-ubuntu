@@ -1,6 +1,6 @@
 echo "- Setup powerline (with powerline fonts)"
 
-pip2 install powerline-status powerline-gitstatus
+pip2 install powerline-status powerline-gitstatus powerkube
 
 echo "- Install more fonts"
 if [ ! -d ~/.fonts/adobe-fonts/source-code-pro ] ; then
