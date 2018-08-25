@@ -1,6 +1,6 @@
 echo "- Install golang"
 
-VERSION="1.10.2"
+VERSION="1.11"
 ARCHIVE="go${VERSION}.linux-amd64.tar.gz"
 URL=https://dl.google.com/go/${ARCHIVE}
 
@@ -9,4 +9,5 @@ curl -sLO ${URL}
 sudo rm -rf /usr/local/go
 sudo tar -C /usr/local -xzf ${ARCHIVE}
 rm -rf ${ARCHIVE}
+
 go version
