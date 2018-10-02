@@ -1,6 +1,6 @@
 echo "- Install golang"
 
-VERSION="1.11"
+VERSION="1.11.1"
 ARCHIVE="go${VERSION}.linux-amd64.tar.gz"
 URL=https://dl.google.com/go/${ARCHIVE}
 
