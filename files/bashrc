@@ -111,7 +111,7 @@ fi
 
 export LC_ALL="en_US.UTF-8"
 
-export GOPATH=~/Documents/Projects/Personal/go
+export GOPATH=~/.go
 export PATH=$PATH:$GOPATH/bin::~/bin:/usr/local/go/bin:~/.local/bin
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/.local/bin" ] ; then
