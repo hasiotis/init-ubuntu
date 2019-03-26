@@ -2,7 +2,7 @@ echo "- Install golang"
 
 mkdir -p ~/tmp ~/.go
 
-VERSION="1.12"
+VERSION="1.12.1"
 ARCHIVE="go${VERSION}.linux-amd64.tar.gz"
 URL=https://dl.google.com/go/${ARCHIVE}
 
