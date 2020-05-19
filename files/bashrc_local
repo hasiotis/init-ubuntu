@@ -2,7 +2,7 @@
 eval $(keychain --eval --agents ssh -Q --quiet id_rsa nhasiotis@atypon.com gccloud)
 
 
-# Add go bin to our PATH
+# Expand our PATH
 export GOPATH=~/.go
 export PATH=$PATH:$GOPATH/bin::~/bin:/usr/local/go/bin:~/.local/bin
 
