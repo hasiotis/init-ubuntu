@@ -1,0 +1,37 @@
+_kube_contexts()
+{
+  local curr_arg;
+  curr_arg=${COMP_WORDS[COMP_CWORD]}
+  COMPREPLY=( $(compgen -W "- $(kubectl config get-contexts --output='name')" -- $curr_arg ) );
+}
+
+complete -F _kube_contexts kubectx kctx
+
+_kube_namespaces()
+{
+  local curr_arg;
+  curr_arg=${COMP_WORDS[COMP_CWORD]}
+  COMPREPLY=( $(compgen -W "- $(kubectl get namespaces -o=jsonpath='{range .items[*].metadata.name}{@}{"\n"}{end}')" -- $curr_arg ) );
+}
+
+complete -F _kube_namespaces kubens kns
+
+kshow() {
+    if [[ $RENDER_POWERLINE_KUBERNETES = "NO" ]]; then
+        export RENDER_POWERLINE_KUBERNETES=YES
+    else
+        export RENDER_POWERLINE_KUBERNETES=NO
+    fi
+}
+
+vbox_cleanup() {
+    for SRV in `vboxmanage list vms`; do
+        echo "- Cleanup $SRV"
+        vboxmanage unregistervm --delete $SRV
+        vboxmanage controlvm $SRV poweroff
+    done
+    rm -rf ~/.VBox/
+}
+
+alias stuffsync="unison stuff.hasiotis.loc"
+alias df="df -h -t ext4"

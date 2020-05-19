@@ -109,23 +109,11 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export LC_ALL="en_US.UTF-8"
-
-export GOPATH=~/.go
-export PATH=$PATH:$GOPATH/bin::~/bin:/usr/local/go/bin:~/.local/bin
-# set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-# Take care of the ssh keys
-eval $(keychain --eval --agents ssh -Q --quiet id_rsa)
-
-# Enable powerline
-~/.local/bin/powerline-daemon -q
-POWERLINE_BASH_CONTINUATION=1
-POWERLINE_BASH_SELECT=1
-source ~/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
-
-source <(kubectl completion bash)
-source <(minikube completion bash)
+# Load our local .bashrc
+if [ -e "$HOME/.bashrc_local" ] ; then
+    . $HOME/.bashrc_local
+fi
