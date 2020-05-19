@@ -13,3 +13,5 @@ sudo mv ./kubectx /usr/local/bin/kubectx
 curl -LO https://raw.githubusercontent.com/ahmetb/kubectx/master/kubens
 chmod +x ./kubens
 sudo mv ./kubens /usr/local/bin/kubens
+
+cd -

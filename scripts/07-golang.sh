@@ -10,6 +10,7 @@ curl -sLO ${URL}
 sudo rm -rf /usr/local/go
 sudo tar -C /usr/local -xzf ${ARCHIVE}
 rm -rf ${ARCHIVE}
+sudo ln -s /usr/local/go/bin/go /usr/local/bin/go
 
 go version
 
