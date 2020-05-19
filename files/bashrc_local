@@ -4,7 +4,7 @@ eval $(keychain --eval --agents ssh -Q --quiet id_rsa)
 
 # Expand our PATH
 export GOPATH=~/.go
-export PATH=$PATH:$GOPATH/bin::~/bin:/usr/local/go/bin:~/.local/bin
+export PATH=$PATH:$GOPATH/bin::~/bin:/usr/local/go/bin:~/.local/bin:~/.krew/bin
 
 if [ -x "$(command -v kubectl)" ]; then source <(kubectl completion bash); fi
 if [ -x "$(command -v minikube)" ]; then source <(minikube completion bash); fi
