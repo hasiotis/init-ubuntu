@@ -1,5 +1,5 @@
 # Take care of the ssh keys
-eval $(keychain --eval --agents ssh -Q --quiet id_rsa nhasiotis@atypon.com gccloud)
+eval $(keychain --eval --agents ssh -Q --quiet id_rsa)
 
 
 # Expand our PATH
