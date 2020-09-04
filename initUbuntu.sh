@@ -2,7 +2,9 @@
 
 for SCRIPT in `ls scripts`; do
     echo "** Executing $SCRIPT"
+    CWD=`pwd`
     source scripts/$SCRIPT
+    cd $CWD
 done
 
 if [ ! -e ~/.bashrc.ORIG ] ; then
