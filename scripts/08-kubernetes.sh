@@ -9,7 +9,7 @@ cd -
 
 (
   cd "$(mktemp -d)" &&
-  curl -fsSLO "https://github.com/kubernetes-sigs/krew/releases/download/v0.3.4/krew.{tar.gz,yaml}" &&
+  curl -fsSLO "https://github.com/kubernetes-sigs/krew/releases/download/v0.4.2/krew.{tar.gz,yaml}" &&
   tar zxvf krew.tar.gz &&
   KREW=./krew-"$(uname | tr '[:upper:]' '[:lower:]')_amd64" &&
   "$KREW" install --manifest=krew.yaml --archive=krew.tar.gz &&
