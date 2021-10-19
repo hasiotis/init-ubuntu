@@ -8,4 +8,4 @@ sudo apt-get install -y \
     pipx tig virtualbox virtualbox-dkms unison
 
 pip3 install --user ansible
-pix install zbuilder
+pipx install zbuilder
