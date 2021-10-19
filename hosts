@@ -1,0 +1,10 @@
+all:
+  hosts:
+    ubuntu.hasiotis.loc:
+      ZBUILDER_PUBKEY: "~/.ssh/id_rsa.pub"
+      ZBUILDER_PROVIDER:
+        CLOUD: local
+        VM_OPTIONS:
+          memory: 4096
+          vcpus: 1
+          box: bento/ubuntu-21.04

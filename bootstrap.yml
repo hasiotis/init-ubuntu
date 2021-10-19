@@ -1,0 +1,33 @@
+- hosts: all:!localhost
+  become: true
+  remote_user: vagrant
+  tasks:
+    - name: Create group
+      group: name=hasiotis gid=1001 state=present
+
+    - name: Create user
+      user:
+        name: hasiotis
+        comment: Nikos Chasiotis
+        uid: 1001
+        group: hasiotis
+        groups: sudo
+        shell: '/bin/bash'
+    - name: Add custom ssh key
+      authorized_key: user=hasiotis key="{{ lookup('file', lookup('env','HOME') + '/.ssh/id_rsa.pub') }}"
+    - name: Update apt package cache
+      apt: update_cache=yes
+    - name: Install Desktop
+      apt:
+        pkg:
+          - ubuntu-desktop
+          - git
+    - name: Upload Files
+      synchronize: src=. dest=/home/vagrant/try
+    - name: Reboot host
+      command: shutdown -r now "Ansible updates triggered"
+      async: 0
+      poll: 0
+      ignore_errors: true
+    - name: Wait for server to come back
+      local_action: wait_for port=22 host="{{ inventory_hostname }}" search_regex=OpenSSH delay=20
