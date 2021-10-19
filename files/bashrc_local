@@ -1,14 +1,18 @@
 # Take care of the ssh keys
 eval $(keychain --eval --agents ssh -Q --quiet id_rsa)
 
-
 # Expand our PATH
 export GOPATH=~/.go
 export PATH=$PATH:$GOPATH/bin::~/bin:/usr/local/go/bin:~/.local/bin:~/.krew/bin
 
+export NODE_PATH=~/.node_modules
+
 if [ -x "$(command -v kubectl)" ]; then source <(kubectl completion bash); fi
 if [ -x "$(command -v minikube)" ]; then source <(minikube completion bash); fi
 if [ -x "$(command -v zbuilder)" ]; then source <(zbuilder completion bash); fi
+
+# Enable direnv
+eval "$(direnv hook bash)"
 
 # Export some nice things
 export LC_ALL="en_US.UTF-8"
@@ -18,4 +22,4 @@ export EDITOR=vi
 ~/.local/bin/powerline-daemon -q
 POWERLINE_BASH_CONTINUATION=1
 POWERLINE_BASH_SELECT=1
-source ~/.local/lib/python3.8/site-packages/powerline/bindings/bash/powerline.sh
+source ~/.local/lib/python3.9/site-packages/powerline/bindings/bash/powerline.sh
