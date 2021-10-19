@@ -23,6 +23,16 @@ kubectl krew install access-matrix
 kubectl krew install konfig
 kubectl krew install resource-capacity
 
+echo "- Install latest minikube"
+
+cd ~/tmp
+wget https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+sudo cp minikube-linux-amd64 /usr/local/bin/minikube
+sudo chown root:root /usr/local/bin/minikube
+sudo chmod +x /usr/local/bin/minikube
+rm minikube-linux-amd64
+cd -
+
 wget https://github.com/wercker/stern/releases/download/1.11.0/stern_linux_amd64
 mv stern_linux_amd64 ~/.local/bin/stern
 chmod +x ~/.local/bin/stern

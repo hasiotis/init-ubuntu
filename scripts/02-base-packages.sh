@@ -5,7 +5,7 @@ sudo apt-get install -y \
     unison lftp keychain vim-pathogen python3-pip \
     jq htop net-tools curl httpie netcat bat \
     tmux-plugin-manager tmux direnv python3-boto3 \
-    pipx tig virtualbox virtualbox-dkms
+    pipx tig virtualbox virtualbox-dkms unison
 
 pip3 install --user ansible
 pix install zbuilder
