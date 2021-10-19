@@ -1,0 +1,5 @@
+- hosts: all:!localhost
+  remote_user: hasiotis
+  tasks:
+    - name: Upload Files
+      synchronize: src=.. dest=/home/hasiotis/try

@@ -4,7 +4,6 @@
   tasks:
     - name: Create group
       group: name=hasiotis gid=1001 state=present
-
     - name: Create user
       user:
         name: hasiotis
@@ -22,8 +21,6 @@
         pkg:
           - ubuntu-desktop
           - git
-    - name: Upload Files
-      synchronize: src=. dest=/home/vagrant/try
     - name: Reboot host
       command: shutdown -r now "Ansible updates triggered"
       async: 0
