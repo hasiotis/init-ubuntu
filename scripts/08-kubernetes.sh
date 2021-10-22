@@ -36,3 +36,12 @@ cd -
 wget https://github.com/wercker/stern/releases/download/1.11.0/stern_linux_amd64
 mv stern_linux_amd64 ~/.local/bin/stern
 chmod +x ~/.local/bin/stern
+
+
+echo "- Install kind"
+curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.11.1/kind-linux-amd64
+chmod +x ./kind
+mv ./kind ~/.local/bin/kind
+
+CTLPTL_VERSION="0.6.0"
+curl -fsSL https://github.com/tilt-dev/ctlptl/releases/download/v$CTLPTL_VERSION/ctlptl.$CTLPTL_VERSION.linux.x86_64.tar.gz | tar -xzv -C ~/.local/bin ctlptl
