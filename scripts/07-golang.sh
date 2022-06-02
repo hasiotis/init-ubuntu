@@ -2,8 +2,9 @@ echo "- Install golang"
 
 mkdir -p ~/tmp ~/.go
 
-ARCHIVE=`curl -s https://golang.org/dl/?mode=json | jq -r '.[0].files[] | select(.os == "linux" and .arch == "amd64") | .filename'`
+ARCHIVE=`curl -s https://go.dev/dl/?mode=json | jq -r '.[0].files[] | select(.os == "linux" and .arch == "amd64") | .filename'`
 URL=https://dl.google.com/go/${ARCHIVE}
+echo $URL
 
 cd ~/tmp
 curl -sLO ${URL}
