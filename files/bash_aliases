@@ -34,4 +34,6 @@ vbox_cleanup() {
 }
 
 alias stuffsync="unison stuff.hasiotis.loc"
-alias df="df -h -t ext4"
+alias df="df -h -t ext4 -t vfat"
+alias tmux="tmux -2"
+alias genpass="apg -x 24 -m 24 -n 1 -a 0"
