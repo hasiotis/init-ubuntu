@@ -1,6 +1,6 @@
 echo "- Setup powerline (with powerline fonts)"
 
-pip3 install powerline-status powerline-gitstatus powerkube kubernetes-py==1.5.6.8
+pip3 install powerline-status powerline-gitstatus powerline-k8s
 
 echo "- Install more fonts"
 if [ ! -d ~/.fonts/adobe-fonts/source-code-pro ] ; then
