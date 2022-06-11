@@ -14,3 +14,5 @@ if [ ! -d ~/.fonts/adobe-fonts/source-code-pro ] ; then
     cd ..
     rm -rf fonts
 fi
+
+cp files/powerline -ri ~/.config/
