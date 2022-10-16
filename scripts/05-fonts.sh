@@ -1,7 +1,3 @@
-echo "- Setup powerline (with powerline fonts)"
-
-pip3 install powerline-status powerline-gitstatus powerline-k8s
-
 echo "- Install more fonts"
 if [ ! -d ~/.fonts/adobe-fonts/source-code-pro ] ; then
     git clone --depth 1 --branch release https://github.com/adobe-fonts/source-code-pro.git ~/.fonts/adobe-fonts/source-code-pro
@@ -14,5 +10,3 @@ if [ ! -d ~/.fonts/adobe-fonts/source-code-pro ] ; then
     cd ..
     rm -rf fonts
 fi
-
-cp files/powerline -ri ~/.config/

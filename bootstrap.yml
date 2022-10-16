@@ -22,9 +22,6 @@
           - ubuntu-desktop
           - git
     - name: Reboot host
-      command: shutdown -r now "Ansible updates triggered"
-      async: 0
-      poll: 0
-      ignore_errors: true
+      reboot: reboot_timeout=3600
     - name: Wait for server to come back
       local_action: wait_for port=22 host="{{ inventory_hostname }}" search_regex=OpenSSH delay=20
