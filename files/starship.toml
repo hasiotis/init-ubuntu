@@ -1,0 +1,55 @@
+# ~/.config/starship.toml
+
+format = """
+$hostname$directory$git_branch$git_metrics$git_status[\uE0B0](fg:#2F79A1 bg:#33658A)\
+$python[\uE0B0](bg:#06969A fg:#33658A)\
+$aws$gcloud$kubernetes[\uE0B0](fg:#06969A)\
+$status$cmd_duration$line_break\
+$jobs$status$shell$character
+"""
+
+add_newline = true
+
+[hostname]
+#ssh_only = false
+format = "[ $hostname ](bg:#9A348E)[\uE0B0](bg:#FCA17D fg:#9A348E)"
+
+[directory]
+truncation_length = 3
+truncation_symbol = "…/"
+format = "[ $path ]($style)[$read_only]($read_only_style)[\uE0B0](fg:#FCA17D bg:#2F79A1)"
+style = "bg:#FCA17D fg:black"
+
+[git_branch]
+format = "[ $branch(:$remote_branch) ]($style)"
+style = "bg:#2F79A1 fg:white"
+
+[git_status]
+stashed = "[⚑${count}](bg:#2F79A1 fg:white)"
+ahead = "[⇡${count}](bg:#2F79A1 fg:white)"
+diverged = "[⇡${ahead_count}⇣${behind_count} ](bg:#2F79A1 fg:white)"
+behind = "[⇣${count} ](bg:#2F79A1 fg:white)"
+staged = "[+${count}](bg:#2F79A1 fg:white)"
+format = "[$all_status$ahead_behind ](bg:#2F79A1 fg:white)"
+style = "bg:#2F79A1 fg:white"
+
+[git_metrics]
+format = '+$added/[-$deleted ](bg:#2F79A1 fg:white)'
+
+[python]
+format = '[ $virtualenv ]($style)'
+pyenv_prefix = ""
+style = "bg:#33658A"
+
+[aws]
+format = '[ $profile ]($style)'
+style = "bg:#06969A"
+
+[kubernetes]
+format = '[ $context:$namespace ]($style)'
+style = "bg:#06969A"
+disabled = false
+
+[cmd_duration]
+format = " took [$duration]($style) "
+min_time = 60000    # 1 minute

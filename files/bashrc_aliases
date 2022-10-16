@@ -16,14 +16,6 @@ _kube_namespaces()
 
 complete -F _kube_namespaces kubens kns
 
-kshow() {
-    if [[ $RENDER_POWERLINE_KUBERNETES = "NO" ]]; then
-        export RENDER_POWERLINE_KUBERNETES=YES
-    else
-        export RENDER_POWERLINE_KUBERNETES=NO
-    fi
-}
-
 vbox_cleanup() {
     for SRV in `vboxmanage list vms`; do
         echo "- Cleanup $SRV"
@@ -33,7 +25,15 @@ vbox_cleanup() {
     rm -rf ~/.VBox/
 }
 
-alias stuffsync="unison stuff.hasiotis.loc"
+
+kpod() {
+    kubectl get pod -A -l app.kubernetes.io/component=$1 -o jsonpath="{.items[0].metadata.name}"
+}
+
+alias genpass="apg -x 24 -m 24 -n 1 -a 0"
 alias df="df -h -t ext4 -t vfat"
 alias tmux="tmux -2"
-alias genpass="apg -x 24 -m 24 -n 1 -a 0"
+alias cal="ncal -M -A 3"
+alias kclean="kubectl config unset current-context"
+
+alias stuffsync="unison stuff.hasiotis.loc"

@@ -3,23 +3,33 @@ eval $(keychain --eval --agents ssh -Q --quiet id_rsa)
 
 # Expand our PATH
 export GOPATH=~/.go
-export PATH=$PATH:$GOPATH/bin::~/bin:/usr/local/go/bin:~/.local/bin:~/.krew/bin
-
-export NODE_PATH=~/.node_modules
+export PATH=$PATH:$GOPATH/bin:~/bin:/usr/local/go/bin:~/.local/bin:~/.krew/bin:~/.npm-global/bin
 
 if [ -x "$(command -v kubectl)" ]; then source <(kubectl completion bash); fi
-if [ -x "$(command -v minikube)" ]; then source <(minikube completion bash); fi
 if [ -x "$(command -v zbuilder)" ]; then source <(zbuilder completion bash); fi
-
-# Enable direnv
-eval "$(direnv hook bash)"
+if [ -x "$(command -v flux)" ]; then source <(flux completion bash); fi
+if [ -x "$(command -v dagger)" ]; then source <(dagger completion bash); fi
+if [ -x "$(command -v aws-vault)" ]; then source <(aws-vault --completion-script-bash); fi
 
 # Export some nice things
 export LC_ALL="en_US.UTF-8"
 export EDITOR=vi
 
-# Enable powerline
-~/.local/bin/powerline-daemon -q
-POWERLINE_BASH_CONTINUATION=1
-POWERLINE_BASH_SELECT=1
-source ~/.local/lib/python3.9/site-packages/powerline/bindings/bash/powerline.sh
+# GPG thing
+GPG_TTY=$(tty)
+export GPG_TTY
+
+# Enable direnv
+eval "$(direnv hook bash)"
+
+# Bash prompth
+eval "$(starship init bash)"
+
+# Load our secrets .bashrc
+if [ -e "$HOME/.bashrc_secrets" ] ; then
+    . $HOME/.bashrc_secrets
+fi
+
+export AWS_VAULT_PROMPT=ykman
+export KUBE_CONFIG_PATH=~/.kube/config
+export NODE_PATH=~/.node_modules
