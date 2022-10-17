@@ -20,6 +20,8 @@
       apt:
         pkg:
           - ubuntu-desktop
+          - virtualbox-guest-utils
+          - virtualbox-guest-x11
           - git
     - name: Reboot host
       reboot: reboot_timeout=3600
