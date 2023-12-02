@@ -1,7 +1,7 @@
 all:
   hosts:
     ubuntu.hasiotis.loc:
-      ZBUILDER_PUBKEY: "~/.ssh/id_rsa.pub"
+      ZBUILDER_PUBKEY: "~/.ssh/id_ed25519.pub"
       ZBUILDER_PROVIDER:
         CLOUD: local
         VM_OPTIONS:
