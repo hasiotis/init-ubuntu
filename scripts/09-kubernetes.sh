@@ -23,27 +23,22 @@ kubectl krew install access-matrix
 kubectl krew install konfig
 kubectl krew install resource-capacity
 
-echo "- Install latest minikube"
 
-cd ~/tmp
-wget https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
-sudo cp minikube-linux-amd64 /usr/local/bin/minikube
-sudo chown root:root /usr/local/bin/minikube
-sudo chmod +x /usr/local/bin/minikube
-rm minikube-linux-amd64
-cd -
-
-wget https://github.com/wercker/stern/releases/download/1.11.0/stern_linux_amd64
-mv stern_linux_amd64 ~/.local/bin/stern
-chmod +x ~/.local/bin/stern
+echo "- Install stern"
+STERN_VERSION="1.28.0"
+curl -fsSL https://github.com/stern/stern/releases/download/v${STERN_VERSION}/stern_${STERN_VERSION}_linux_amd64.tar.gz | tar -xzv -C ~/.local/bin stern
 
 
 echo "- Install kind"
-curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.11.1/kind-linux-amd64
+curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.22.0/kind-linux-amd64
 chmod +x ./kind
 mv ./kind ~/.local/bin/kind
 
-CTLPTL_VERSION="0.6.0"
+
+echo "- Install ctlptl"
+CTLPTL_VERSION="0.8.28"
 curl -fsSL https://github.com/tilt-dev/ctlptl/releases/download/v$CTLPTL_VERSION/ctlptl.$CTLPTL_VERSION.linux.x86_64.tar.gz | tar -xzv -C ~/.local/bin ctlptl
 
+
+echo "- Install tilt"
 curl -fsSL https://raw.githubusercontent.com/tilt-dev/tilt/master/scripts/install.sh | bash
