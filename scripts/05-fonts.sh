@@ -1,12 +1,16 @@
 echo "- Install more fonts"
-if [ ! -d ~/.fonts/adobe-fonts/source-code-pro ] ; then
-    git clone --depth 1 --branch release https://github.com/adobe-fonts/source-code-pro.git ~/.fonts/adobe-fonts/source-code-pro
-    fc-cache -f -v ~/.fonts/adobe-fonts/source-code-pro
 
-    cd /tmp
-    git clone https://github.com/powerline/fonts.git --depth=1
-    cd fonts
-    ./install.sh
-    cd ..
-    rm -rf fonts
-fi
+installNerdFont() {
+    wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/${1}.zip
+    unzip ${1}.zip -d Font
+    cp Font/*.ttf Font/*.otf ~/.local/share/fonts
+    fc-cache -fv ~/.local/share/fonts/
+    rm -rf Font
+}
+
+cd /tmp
+mkdir -p ~/.local/share/fonts
+installNerdFont CascadiaMono
+installNerdFont CommitMono
+installNerdFont Inconsolata
+cd -
