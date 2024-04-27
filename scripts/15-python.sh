@@ -1,4 +1,5 @@
 echo "Install python stuff"
+exit
 
 curl -sSL https://install.python-poetry.org | python3 -
 
