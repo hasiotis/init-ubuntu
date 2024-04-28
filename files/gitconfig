@@ -1,0 +1,39 @@
+[color]
+    ui = always
+
+[core]
+    excludesfile = /home/hasiotis/.gitignore_global
+
+[push]
+    default = simple
+
+[alias]
+    lol = log --graph --pretty=format:\"%C(yellow)%h%Creset%C(cyan)%C(bold)%d%Creset %C(cyan)(%cr)%Creset %C(green)%ce%Creset %s\"
+    identity = "! git config user.name \"$(git config user.$1.name)\"; git config user.email \"$(git config user.$1.email)\"; git config user.signingkey \"$(git config user.$1.signingkey)\"; :"
+
+
+[init]
+    defaultBranch = main
+
+[commit]
+    gpgsign = true
+
+[tag]
+    forceSignAnnotated = true
+
+[user]
+    useConfigOnly = true
+
+[user "personal"]
+    name = Nikos Chasiotis
+    email = hasiotis@gmail.com
+    signingkey = FF60684D8767ABFD
+
+
+[user "metrika"]
+    name = Nikos Chasiotis
+    email = hasiotis@metrika.co
+    signingkey = 0FF1EE7EEAC5763B
+
+[url "git@github.com:Metrika-Inc/"]
+    insteadOf = https://github.com/Metrika-Inc/

@@ -30,6 +30,14 @@ kpod() {
     kubectl get pod -A -l app.kubernetes.io/component=$1 -o jsonpath="{.items[0].metadata.name}"
 }
 
+# Linux unlock gnome keyring
+unlock-keyring() {
+    read -rsp "Password: " pass
+    export $(echo -n "$pass" | gnome-keyring-daemon --replace --unlock)
+    unset pass
+}
+
+
 alias genpass="apg -x 24 -m 24 -n 1 -a 0"
 alias df="df -h -t ext4 -t vfat"
 alias tmux="tmux -2"

@@ -8,9 +8,11 @@ installNerdFont() {
     rm -rf Font
 }
 
-cd /tmp
-mkdir -p ~/.local/share/fonts
-installNerdFont CascadiaMono
-installNerdFont CommitMono
-installNerdFont Inconsolata
-cd -
+if [ ! -e ~/.local/share/fonts ] ; then
+    cd /tmp
+    mkdir -p ~/.local/share/fonts
+    installNerdFont CascadiaMono
+    installNerdFont CommitMono
+    installNerdFont Inconsolata
+    cd -
+fi
