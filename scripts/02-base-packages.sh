@@ -6,6 +6,6 @@ sudo apt-get install -y \
     jq htop net-tools curl httpie netcat-openbsd bat \
     tmux-plugin-manager tmux direnv python3-boto3 \
     pipx tig virtualbox virtualbox-dkms unison cmake \
-    ansible
+    ansible gnupg software-properties-common
 
 pipx install zbuilder
