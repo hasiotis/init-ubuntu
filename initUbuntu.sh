@@ -10,8 +10,8 @@ done
 
 if [ ! -e ~/.bashrc.ORIG ] ; then
     cp ~/.bashrc ~/.bashrc.ORIG
-    echo "test -e ~/.bashrc_local" >> ~/.bashrc_local
-    cp files/bashrc_local   ~/.bashrc_local
+    echo "test -e ~/.bash_local && . ~/.bash_local" >> ~/.bashrc
+    cp files/bash_local   ~/.bash_local
     cp files/bash_aliases ~/.bash_aliases
     cp files/gitconfig ~/.gitconfig
 fi

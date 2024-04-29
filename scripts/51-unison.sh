@@ -1,3 +1,5 @@
+mkdir -p ~/.unison
+
 cat <<"EOF" > ~/.unison/daruk.hasiotis.loc.prf
 # Unison preferences file
 logfile = /home/hasiotis/.unison/unison.log
