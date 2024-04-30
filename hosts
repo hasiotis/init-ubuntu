@@ -5,6 +5,6 @@ all:
       ZBUILDER_PROVIDER:
         CLOUD: local
         VM_OPTIONS:
-          memory: 4096
-          vcpus: 1
-          box: bento/ubuntu-22.04
+          memory: 8192
+          vcpus: 4
+          box: bento/ubuntu-24.04
