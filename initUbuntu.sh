@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if [ "$EUID" -eq 0 ]
+  then echo "Please don not run as root"
+  exit
+fi
+
 mkdir -p ~/.config
 
 for SCRIPT in `ls scripts`; do
