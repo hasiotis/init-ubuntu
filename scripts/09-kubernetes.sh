@@ -17,12 +17,11 @@ cd -
   ./"${KREW}" install krew
 )
 
-kubectl krew install ctx
-kubectl krew install ns
-kubectl krew install access-matrix
-kubectl krew install konfig
-kubectl krew install resource-capacity
-
+~/.krew/bin/kubectl-krew install ctx
+~/.krew/bin/kubectl-krew install ns
+~/.krew/bin/kubectl-krew install access-matrix
+~/.krew/bin/kubectl-krew install konfig
+~/.krew/bin/kubectl-krew install resource-capacity
 
 echo "- Install stern"
 STERN_VERSION="1.28.0"
@@ -42,3 +41,7 @@ curl -fsSL https://github.com/tilt-dev/ctlptl/releases/download/v$CTLPTL_VERSION
 
 echo "- Install tilt"
 curl -fsSL https://raw.githubusercontent.com/tilt-dev/tilt/master/scripts/install.sh | bash
+
+echo "- Install k9s"
+K9S_VERSION="0.32.4"
+curl -fsSL https://github.com/derailed/k9s/releases/download/v${K9S_VERSION}/k9s_Linux_amd64.tar.gz | tar -xzv -C ~/.local/bin k9s
